@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arstrell Shane Gonzaga | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #f0f6fc;
+      --text-dark: #1e2a38;
+      --accent: #3a8ddb;
+      --muted: #6b7c93;
+      --card-bg: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 8px var(--shadow);
+      padding: 16px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      font-weight: 500;
+      font-size: 15px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    section {
+      margin-bottom: 80px;
+    }
+
+    section h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--accent);
+      padding-left: 14px;
+    }
+
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .profile img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      object-fit: cover;
+    }
+
+    .bio {
+      max-width: 650px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+    }
+
+    .project {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+
+    .project img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .project h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .project p {
+      font-size: 14.5px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .tag {
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    .contact-form button {
+      background: var(--accent);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #2e6ebd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    #topBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: opacity 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .profile {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .bio {
+        text-align: center;
+      }
+
+      nav ul {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Arstrell Shane Gonzaga</h1>
+    <nav>
+      <ul>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Photos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section id="profile">
+      <h2>Profile</h2>
+      <div class="profile">
+        <img src="images/Profile.png" alt="Arstrell Shane Gonzaga">
+        <div class="bio">
+          <p>Hello! I’m <strong>Arstrell Shane Gonzaga</strong>, a Virtual Assistant and Front-End Developer behind <em>Heartbyte Studio</em>. I specialize in responsive design, branding support, and digital systems that help businesses thrive—built with logic, delivered with heart.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project">
+           <img src="images/Screenshot (854).png" alt="Water Billing System">
+          <h3>Water Billing System</h3>
+          <p>Billing & payment system using VB.NET + MySQL for LGU clients.</p>
+          <div class="tags">
+            <span class="tag">VB.NET</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Reports</span>
+          </div>
+        </div>
+        <div class="project">
+           <img src="images/Screenshot (1210).png" alt="Flower Shop Website">
+          <h3>Flower Shop Website</h3>
+          <p>E-commerce frontend with order tracking, built using PHP and MySQL.</p>
+          <div class="tags">
+            <span class="tag">PHP</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">Bootstrap</span>
+          </div>
+        </div>
+        <div class="project">
+       <img src="images/Screenshot (1211).png" alt="E-Logbook Screenshot">
+      <h3>DTC E-Logbook System</h3>
+      <p>A digital logbook system for monitoring daily logs, activities, and reports for DTC operations.</p>
+      <div class="tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Photos</h2>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/200x120" alt="Screenshot 1">
+        <img src="https://via.placeholder.com/200x120" alt="Screenshot 2">
+        <img src="https://via.placeholder.com/200x120" alt="Screenshot 3">
+        <img src="https://via.placeholder.com/200x120" alt="Screenshot 4">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Arstrell Shane Gonzaga. Designed with logic. Delivered with heart.
+  </footer>
+
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="topBtn">&#8679;</button>
+
+  <script>
+    const topBtn = document.getElementById("topBtn");
+    window.addEventListener("scroll", () => {
+      topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+  </script>
+</body>
+</html>
